@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-mieszkanie-heading">Create or edit a Mieszkanie</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_metraz">Metraz</label>
+                    <input type="number" class="form-control" name="metraz" id="field_metraz"
+                           formControlName="metraz"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_czyLazienka">Czy Lazienka</label>
+                    <input type="checkbox" class="form-control" name="czyLazienka" id="field_czyLazienka"
+                           formControlName="czyLazienka"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_czyKuchnia">Czy Kuchnia</label>
+                    <input type="checkbox" class="form-control" name="czyKuchnia" id="field_czyKuchnia"
+                           formControlName="czyKuchnia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_czyWyposazone">Czy Wyposazone</label>
+                    <input type="checkbox" class="form-control" name="czyWyposazone" id="field_czyWyposazone"
+                           formControlName="czyWyposazone"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nieruchomosc">Nieruchomosc</label>
+                    <select class="form-control" id="field_nieruchomosc" name="nieruchomosc" formControlName="nieruchomosc">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nieruchomoscOption.id === editForm.get('nieruchomosc').value?.id ? editForm.get('nieruchomosc').value : nieruchomoscOption" *ngFor="let nieruchomoscOption of nieruchomoscs; trackBy: trackNieruchomoscById">{{nieruchomoscOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

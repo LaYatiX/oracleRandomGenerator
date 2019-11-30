@@ -1,0 +1,40 @@
+{
+    "name": "Mieszkanie",
+    "fields": [
+        {
+            "fieldName": "metraz",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "czyLazienka",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "czyKuchnia",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "czyWyposazone",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "nieruchomosc",
+            "otherEntityRelationshipName": "mieszkania",
+            "relationshipName": "nieruchomosc",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191130141013",
+    "entityTableName": "mieszkanie",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

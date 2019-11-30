@@ -1,0 +1,44 @@
+{
+    "name": "GodzinyOtwarcia",
+    "fields": [
+        {
+            "fieldName": "poniedzialek",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wtorek",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sroda",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "czwartek",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "piatek",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sobota",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "niedziela",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191130141009",
+    "entityTableName": "godziny_otwarcia",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

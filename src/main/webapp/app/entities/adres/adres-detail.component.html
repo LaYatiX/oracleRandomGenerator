@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adres">
+            <h2><span>Adres</span> {{adres.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Miasto</span></dt>
+                <dd>
+                    <span>{{adres.miasto}}</span>
+                </dd>
+                <dt><span>Ulica</span></dt>
+                <dd>
+                    <span>{{adres.ulica}}</span>
+                </dd>
+                <dt><span>Nr Domu</span></dt>
+                <dd>
+                    <span>{{adres.nrDomu}}</span>
+                </dd>
+                <dt><span>Nr Lokalu</span></dt>
+                <dd>
+                    <span>{{adres.nrLokalu}}</span>
+                </dd>
+                <dt><span>Wojewodzwtwo</span></dt>
+                <dd>
+                    <span>{{adres.wojewodzwtwo}}</span>
+                </dd>
+                <dt><span>Powiat</span></dt>
+                <dd>
+                    <span>{{adres.powiat}}</span>
+                </dd>
+                <dt><span>Gmina</span></dt>
+                <dd>
+                    <span>{{adres.gmina}}</span>
+                </dd>
+                <dt><span>Kod Pocztowy</span></dt>
+                <dd>
+                    <span>{{adres.kodPocztowy}}</span>
+                </dd>
+                <dt><span>Kraj</span></dt>
+                <dd>
+                    <span>{{adres.kraj}}</span>
+                </dd>
+                <dt><span>Lokalizacja</span></dt>
+                <dd>
+                    <div *ngIf="adres.lokalizacja">
+                        <a [routerLink]="['/lokalizacja', adres.lokalizacja?.id, 'view']">{{adres.lokalizacja?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adres', adres.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

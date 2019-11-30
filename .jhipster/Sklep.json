@@ -1,0 +1,48 @@
+{
+    "name": "Sklep",
+    "fields": [
+        {
+            "fieldName": "typ",
+            "fieldType": "TypSklepu",
+            "fieldValues": "SPOZYWCZY,PRZEMYSLOWY,CHEMIA,USLUGI,DELIKATESY"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "godzinyOtwarcia",
+            "otherEntityRelationshipName": "sklep",
+            "relationshipName": "godzinyOtwarcia",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "transakcja",
+            "otherEntityRelationshipName": "sklep",
+            "relationshipName": "transakcje"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "produkt",
+            "otherEntityRelationshipName": "sklep",
+            "relationshipName": "produkty"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "osoba",
+            "otherEntityRelationshipName": "sklep",
+            "relationshipName": "wlasciciele"
+        }
+    ],
+    "changelogDate": "20191130141008",
+    "entityTableName": "sklep",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

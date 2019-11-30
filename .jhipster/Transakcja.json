@@ -1,0 +1,42 @@
+{
+    "name": "Transakcja",
+    "fields": [
+        {
+            "fieldName": "nettoo",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "brutton",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "vat",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "produkt",
+            "otherEntityRelationshipName": "transakcja",
+            "relationshipName": "produkty"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sklep",
+            "otherEntityRelationshipName": "transakcje",
+            "relationshipName": "sklep",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191130141006",
+    "entityTableName": "transakcja",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

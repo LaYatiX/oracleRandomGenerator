@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Adres.
+    -->
+    <changeSet id="20191130141011-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="lokalizacja_id"
+                                 baseTableName="adres"
+                                 constraintName="fk_adres_lokalizacja_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lokalizacja"/>
+
+    </changeSet>
+</databaseChangeLog>

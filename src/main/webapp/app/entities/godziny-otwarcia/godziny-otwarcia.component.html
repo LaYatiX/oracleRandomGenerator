@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span>Godziny Otwarcias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-godziny-otwarcia" [routerLink]="['/godziny-otwarcia/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Godziny Otwarcia
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="godzinyOtwarcias?.length === 0">
+        <span>No godzinyOtwarcias found</span>
+    </div>
+    <div class="table-responsive" *ngIf="godzinyOtwarcias?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span>ID</span></th>
+            <th scope="col" ><span>Poniedzialek</span></th>
+            <th scope="col" ><span>Wtorek</span></th>
+            <th scope="col" ><span>Sroda</span></th>
+            <th scope="col" ><span>Czwartek</span></th>
+            <th scope="col" ><span>Piatek</span></th>
+            <th scope="col" ><span>Sobota</span></th>
+            <th scope="col" ><span>Niedziela</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let godzinyOtwarcia of godzinyOtwarcias ;trackBy: trackId">
+                <td><a [routerLink]="['/godziny-otwarcia', godzinyOtwarcia.id, 'view' ]">{{godzinyOtwarcia.id}}</a></td>
+                <td>{{godzinyOtwarcia.poniedzialek}}</td>
+                <td>{{godzinyOtwarcia.wtorek}}</td>
+                <td>{{godzinyOtwarcia.sroda}}</td>
+                <td>{{godzinyOtwarcia.czwartek}}</td>
+                <td>{{godzinyOtwarcia.piatek}}</td>
+                <td>{{godzinyOtwarcia.sobota}}</td>
+                <td>{{godzinyOtwarcia.niedziela}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/godziny-otwarcia', godzinyOtwarcia.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/godziny-otwarcia', godzinyOtwarcia.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/godziny-otwarcia', { outlets: { popup: godzinyOtwarcia.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{
+    "name": "Nieruchomosc",
+    "fields": [
+        {
+            "fieldName": "typ",
+            "fieldType": "TypNieruchomosci",
+            "fieldValues": "DOM,BLOK,HOTEL,WIEZOWIEC"
+        },
+        {
+            "fieldName": "iloscMieszkan",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "iloscMieszkancow",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "adres",
+            "otherEntityRelationshipName": "nieruchomosc",
+            "relationshipName": "adres",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mieszkanie",
+            "otherEntityRelationshipName": "nieruchomosc",
+            "relationshipName": "mieszkania"
+        }
+    ],
+    "changelogDate": "20191130141012",
+    "entityTableName": "nieruchomosc",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

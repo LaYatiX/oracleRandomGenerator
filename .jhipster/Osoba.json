@@ -1,0 +1,48 @@
+{
+    "name": "Osoba",
+    "fields": [
+        {
+            "fieldName": "imie",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nazwisko",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pesel",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "adres",
+            "otherEntityRelationshipName": "osoba",
+            "relationshipName": "adres",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sklep",
+            "otherEntityRelationshipName": "wlasciciele",
+            "relationshipName": "sklep",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191130141010",
+    "entityTableName": "osoba",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

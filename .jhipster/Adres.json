@@ -1,0 +1,61 @@
+{
+    "name": "Adres",
+    "fields": [
+        {
+            "fieldName": "miasto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ulica",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nrDomu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nrLokalu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wojewodzwtwo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "powiat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gmina",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "kodPocztowy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "kraj",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "lokalizacja",
+            "otherEntityRelationshipName": "adres",
+            "relationshipName": "lokalizacja",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191130141011",
+    "entityTableName": "adres",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

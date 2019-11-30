@@ -1,0 +1,122 @@
+entity Transakcja {
+	id Integer,
+    nettoo Double,
+    brutton Double,
+    vat Integer
+}
+
+relationship OneToMany {
+	Sklep{transakcje} to Transakcja
+}
+
+relationship OneToMany {
+	Transakcja{produkty} to Produkt
+}
+
+entity Produkt {
+	id Integer,
+	nazwa String,
+    wartosc Double,
+    vat Integer,
+}
+
+relationship OneToMany {
+	Sklep{produkty} to Produkt
+}
+
+entity Sklep {
+	id Integer,
+	typ TypSklepu,
+}
+
+relationship OneToMany {
+	Sklep{wlasciciele} to Osoba
+}
+
+enum TypSklepu {
+    SPOZYWCZY, 
+    PRZEMYSLOWY, 
+    CHEMIA, 
+    USLUGI, 
+    DELIKATESY
+}
+
+relationship OneToOne {
+	Sklep{godzinyOtwarcia} to GodzinyOtwarcia
+}
+
+entity GodzinyOtwarcia {
+	id Integer,
+    poniedzialek String,
+    wtorek String,
+    sroda String,
+    czwartek String,
+    piatek String,
+    sobota String,
+    niedziela String,
+}
+
+entity Osoba {
+	id Integer,
+    imie String,
+    nazwisko String,
+    telefon String,
+    pesel String,
+}
+
+relationship OneToOne {
+	Osoba{adres} to Adres
+}
+
+entity Adres {
+	id Integer,
+    miasto String,
+    ulica String,
+    nrDomu String,
+    nrLokalu String,
+    wojewodzwtwo String,
+    powiat String,
+    gmina String,
+    kodPocztowy String,
+    kraj String,
+}
+
+relationship OneToOne {
+	Nieruchomosc{adres} to Adres
+}
+
+entity Nieruchomosc {
+	id Integer,
+    typ TypNieruchomosci,
+    iloscMieszkan Integer,
+    iloscMieszkancow Integer
+}
+
+enum TypNieruchomosci {
+    DOM, 
+    BLOK, 
+    HOTEL,
+    WIEZOWIEC
+}
+
+relationship OneToMany {
+	Nieruchomosc{mieszkania} to Mieszkanie
+}
+
+entity Mieszkanie {
+	id Integer,
+    metraz Integer,
+    czyLazienka Boolean,
+    czyKuchnia Boolean,
+    czyWyposazone Boolean
+}
+
+relationship OneToOne {
+	Adres{lokalizacja} to Lokalizacja
+}
+
+entity Lokalizacja {
+	id Integer,
+    lat Double,
+    lng Double,
+}

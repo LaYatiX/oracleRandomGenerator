@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-osoba-heading">Create or edit a Osoba</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_imie">Imie</label>
+                    <input type="text" class="form-control" name="imie" id="field_imie"
+                           formControlName="imie"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nazwisko">Nazwisko</label>
+                    <input type="text" class="form-control" name="nazwisko" id="field_nazwisko"
+                           formControlName="nazwisko"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_telefon">Telefon</label>
+                    <input type="text" class="form-control" name="telefon" id="field_telefon"
+                           formControlName="telefon"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pesel">Pesel</label>
+                    <input type="text" class="form-control" name="pesel" id="field_pesel"
+                           formControlName="pesel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_adres">Adres</label>
+                    <select class="form-control" id="field_adres" name="adres" formControlName="adres">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="adresOption.id === editForm.get('adres').value?.id ? editForm.get('adres').value : adresOption" *ngFor="let adresOption of adres; trackBy: trackAdresById">{{adresOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sklep">Sklep</label>
+                    <select class="form-control" id="field_sklep" name="sklep" formControlName="sklep">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sklepOption.id === editForm.get('sklep').value?.id ? editForm.get('sklep').value : sklepOption" *ngFor="let sklepOption of skleps; trackBy: trackSklepById">{{sklepOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

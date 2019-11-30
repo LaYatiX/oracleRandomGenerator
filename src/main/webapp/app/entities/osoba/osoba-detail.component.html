@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="osoba">
+            <h2><span>Osoba</span> {{osoba.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Imie</span></dt>
+                <dd>
+                    <span>{{osoba.imie}}</span>
+                </dd>
+                <dt><span>Nazwisko</span></dt>
+                <dd>
+                    <span>{{osoba.nazwisko}}</span>
+                </dd>
+                <dt><span>Telefon</span></dt>
+                <dd>
+                    <span>{{osoba.telefon}}</span>
+                </dd>
+                <dt><span>Pesel</span></dt>
+                <dd>
+                    <span>{{osoba.pesel}}</span>
+                </dd>
+                <dt><span>Adres</span></dt>
+                <dd>
+                    <div *ngIf="osoba.adres">
+                        <a [routerLink]="['/adres', osoba.adres?.id, 'view']">{{osoba.adres?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Sklep</span></dt>
+                <dd>
+                    <div *ngIf="osoba.sklep">
+                        <a [routerLink]="['/sklep', osoba.sklep?.id, 'view']">{{osoba.sklep?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/osoba', osoba.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

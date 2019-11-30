@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-sklep-heading">Create or edit a Sklep</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_typ">Typ</label>
+                    <select class="form-control" name="typ" formControlName="typ" id="field_typ">
+                        <option value="SPOZYWCZY">SPOZYWCZY</option>
+                        <option value="PRZEMYSLOWY">PRZEMYSLOWY</option>
+                        <option value="CHEMIA">CHEMIA</option>
+                        <option value="USLUGI">USLUGI</option>
+                        <option value="DELIKATESY">DELIKATESY</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_godzinyOtwarcia">Godziny Otwarcia</label>
+                    <select class="form-control" id="field_godzinyOtwarcia" name="godzinyOtwarcia" formControlName="godzinyOtwarcia">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="godzinyOtwarciaOption.id === editForm.get('godzinyOtwarcia').value?.id ? editForm.get('godzinyOtwarcia').value : godzinyOtwarciaOption" *ngFor="let godzinyOtwarciaOption of godzinyotwarcias; trackBy: trackGodzinyOtwarciaById">{{godzinyOtwarciaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

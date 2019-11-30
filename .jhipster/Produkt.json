@@ -1,0 +1,43 @@
+{
+    "name": "Produkt",
+    "fields": [
+        {
+            "fieldName": "nazwa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wartosc",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "vat",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "transakcja",
+            "otherEntityRelationshipName": "produkty",
+            "relationshipName": "transakcja",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sklep",
+            "otherEntityRelationshipName": "produkty",
+            "relationshipName": "sklep",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191130141007",
+    "entityTableName": "produkt",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

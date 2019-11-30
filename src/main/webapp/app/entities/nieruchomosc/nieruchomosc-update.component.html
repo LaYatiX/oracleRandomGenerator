@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-nieruchomosc-heading">Create or edit a Nieruchomosc</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_typ">Typ</label>
+                    <select class="form-control" name="typ" formControlName="typ" id="field_typ">
+                        <option value="DOM">DOM</option>
+                        <option value="BLOK">BLOK</option>
+                        <option value="HOTEL">HOTEL</option>
+                        <option value="WIEZOWIEC">WIEZOWIEC</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_iloscMieszkan">Ilosc Mieszkan</label>
+                    <input type="number" class="form-control" name="iloscMieszkan" id="field_iloscMieszkan"
+                           formControlName="iloscMieszkan"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_iloscMieszkancow">Ilosc Mieszkancow</label>
+                    <input type="number" class="form-control" name="iloscMieszkancow" id="field_iloscMieszkancow"
+                           formControlName="iloscMieszkancow"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_adres">Adres</label>
+                    <select class="form-control" id="field_adres" name="adres" formControlName="adres">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="adresOption.id === editForm.get('adres').value?.id ? editForm.get('adres').value : adresOption" *ngFor="let adresOption of adres; trackBy: trackAdresById">{{adresOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

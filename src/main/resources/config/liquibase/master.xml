@@ -13,7 +13,23 @@
     <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
     <property name="uuidType" value="uuid" dbms="h2, oracle"/>
 
-    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+<!--    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/changelog/20191130141006_added_entity_Transakcja.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141007_added_entity_Produkt.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141008_added_entity_Sklep.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141009_added_entity_GodzinyOtwarcia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141010_added_entity_Osoba.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141011_added_entity_Adres.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141012_added_entity_Nieruchomosc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141013_added_entity_Mieszkanie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141014_added_entity_Lokalizacja.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20191130141006_added_entity_constraints_Transakcja.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141007_added_entity_constraints_Produkt.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141008_added_entity_constraints_Sklep.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141010_added_entity_constraints_Osoba.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141011_added_entity_constraints_Adres.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141012_added_entity_constraints_Nieruchomosc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191130141013_added_entity_constraints_Mieszkanie.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

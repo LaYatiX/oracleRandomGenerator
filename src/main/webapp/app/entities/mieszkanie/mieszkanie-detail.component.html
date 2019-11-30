@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mieszkanie">
+            <h2><span>Mieszkanie</span> {{mieszkanie.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Metraz</span></dt>
+                <dd>
+                    <span>{{mieszkanie.metraz}}</span>
+                </dd>
+                <dt><span>Czy Lazienka</span></dt>
+                <dd>
+                    <span>{{mieszkanie.czyLazienka}}</span>
+                </dd>
+                <dt><span>Czy Kuchnia</span></dt>
+                <dd>
+                    <span>{{mieszkanie.czyKuchnia}}</span>
+                </dd>
+                <dt><span>Czy Wyposazone</span></dt>
+                <dd>
+                    <span>{{mieszkanie.czyWyposazone}}</span>
+                </dd>
+                <dt><span>Nieruchomosc</span></dt>
+                <dd>
+                    <div *ngIf="mieszkanie.nieruchomosc">
+                        <a [routerLink]="['/nieruchomosc', mieszkanie.nieruchomosc?.id, 'view']">{{mieszkanie.nieruchomosc?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mieszkanie', mieszkanie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

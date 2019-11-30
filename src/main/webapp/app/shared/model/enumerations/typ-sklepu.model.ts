@@ -1,0 +1,7 @@
+export const enum TypSklepu {
+  SPOZYWCZY = 'SPOZYWCZY',
+  PRZEMYSLOWY = 'PRZEMYSLOWY',
+  CHEMIA = 'CHEMIA',
+  USLUGI = 'USLUGI',
+  DELIKATESY = 'DELIKATESY'
+}

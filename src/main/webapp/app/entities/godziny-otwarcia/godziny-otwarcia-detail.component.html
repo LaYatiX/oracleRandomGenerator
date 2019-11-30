@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="godzinyOtwarcia">
+            <h2><span>Godziny Otwarcia</span> {{godzinyOtwarcia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Poniedzialek</span></dt>
+                <dd>
+                    <span>{{godzinyOtwarcia.poniedzialek}}</span>
+                </dd>
+                <dt><span>Wtorek</span></dt>
+                <dd>
+                    <span>{{godzinyOtwarcia.wtorek}}</span>
+                </dd>
+                <dt><span>Sroda</span></dt>
+                <dd>
+                    <span>{{godzinyOtwarcia.sroda}}</span>
+                </dd>
+                <dt><span>Czwartek</span></dt>
+                <dd>
+                    <span>{{godzinyOtwarcia.czwartek}}</span>
+                </dd>
+                <dt><span>Piatek</span></dt>
+                <dd>
+                    <span>{{godzinyOtwarcia.piatek}}</span>
+                </dd>
+                <dt><span>Sobota</span></dt>
+                <dd>
+                    <span>{{godzinyOtwarcia.sobota}}</span>
+                </dd>
+                <dt><span>Niedziela</span></dt>
+                <dd>
+                    <span>{{godzinyOtwarcia.niedziela}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/godziny-otwarcia', godzinyOtwarcia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

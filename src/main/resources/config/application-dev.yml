@@ -24,6 +24,7 @@ spring:
     active: dev
     include:
       - swagger
+      #- no-liquibase
       # Uncomment to activate TLS for the dev profile
       #- tls
   devtools:
@@ -36,9 +37,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:oracle:thin:@localhost:1521:xe
-    username: system
-    password: oracle
+    url: jdbc:oracle:thin:@grzegorz123.ddns.net:1521:ORCLCDB
+    username: SYSTEM
+    password: FgDQLdk4rX8=1
     hikari:
       poolName: Hikari
       auto-commit: false
